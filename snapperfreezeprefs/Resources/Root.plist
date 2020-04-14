@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>items</key>
+	<array>
+		<dict>
+			<key>cell</key>
+			<string>PSGroupCell</string>
+			<key>label</key>
+			<string>Alpha slider</string>
+		</dict>
+		<dict>
+			<key>cell</key>
+			<string>PSSliderCell</string>
+			<key>default</key>
+			<real>50.0</real>
+			<key>min</key>
+			<real>0.0</real>
+			<key>max</key>
+			<real>100.0</real>
+			<key>showValue</key>
+			<true/>
+			<key>isSegmented</key>
+			<false/>
+			<key>segmentCount</key>
+			<integer>100</integer>
+			<key>defaults</key>
+			<string>com.gilshahar7.snapperfreezerprefs</string>
+			<key>key</key>
+			<string>alphaSlider</string>
+			<key>PostNotification</key>
+			<string>com.gilshahar7.snapperfreezerprefs.settingschanged</string>
+		</dict>
+	</array>
+	<key>title</key>
+	<string>SnapperFreeze - gilshahar7</string>
+</dict>
+</plist>
