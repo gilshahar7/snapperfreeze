@@ -1,6 +1,8 @@
-include $(THEOS)/makefiles/common.mk
 
-export ARCHS = arm64
+ARCHS = armv7 arm64 arm64e
+export TARGET = iphone:clang:11.2:7.0
+
+include $(THEOS)/makefiles/common.mk
 
 BUNDLE_NAME = SFCCToggle
 SFCCToggle_BUNDLE_EXTENSION = bundle
