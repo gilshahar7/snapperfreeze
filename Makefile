@@ -1,10 +1,11 @@
-ARCHS = armv7 arm64 arm64e
+ARCHS = armv7 arm64
 export TARGET = iphone:clang:11.2:7.0
 
 include $(THEOS)/makefiles/common.mk
 
 TWEAK_NAME = SnapperFreeze
 SnapperFreeze_FILES = Tweak.xm
+SnapperFreeze_LIBRARIES = activator
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 

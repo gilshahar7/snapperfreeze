@@ -1,4 +1,5 @@
 #define PLIST_PATH @"/User/Library/Preferences/com.gilshahar7.snapperfreezerprefs.plist"
+#import <libactivator/libactivator.h>
 
 @interface Snap : UIView
 @end
@@ -8,6 +9,9 @@
 
 @interface CALayer (SF)
 @property BOOL allowsHitTesting;
+@end
+
+@interface SnapFreezeListener : NSObject<LAListener>
 @end
 
 //static SnapperWindow *mySnapperWindow;
@@ -25,6 +29,32 @@ static void loadPrefs() {
   [NSNotificationCenter.defaultCenter postNotificationName:@"com.gilshahar7.snapperfreeze/toggle" object:nil];
 
 }
+
+@implementation SnapFreezeListener
+
+-(void)activator:(LAActivator *)activator receiveEvent:(LAEvent *)event {
+  [NSNotificationCenter.defaultCenter postNotificationName:@"com.gilshahar7.snapperfreeze/toggle" object:nil];
+  [event setHandled:YES];
+}
+
++(void)load {
+  @autoreleasepool {
+    [[LAActivator sharedInstance] registerListener:[self new] forName:@"com.gilshahar7.snapperfreeze.toggle"];
+  }
+}
+
+- (NSString *)activator:(LAActivator *)activator requiresLocalizedTitleForListenerName:(NSString *)listenerName {
+    return @"Toggle SnapFreeze";
+}
+- (NSString *)activator:(LAActivator *)activator requiresLocalizedDescriptionForListenerName:(NSString *)listenerName {
+    return @"Freeze Snapper's snaps on your screen";
+}
+- (NSArray *)activator:(LAActivator *)activator requiresCompatibleEventModesForListenerWithName:(NSString *)listenerName {
+    return [NSArray arrayWithObjects:@"springboard", @"lockscreen", @"application", nil];
+}
+
+@end
+
 
 %hook SnapperWindow
 -(SnapperWindow *)initWithFrame:(CGRect)arg1{
