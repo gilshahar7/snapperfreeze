@@ -1,7 +1,7 @@
 Package: com.gilshahar7.snapperfreeze
 Name: SnapperFreeze
 Depends: mobilesubstrate
-Version: 1.1
+Version: 1.2
 Architecture: iphoneos-arm
 Description: Allows you to draw over Snapper's snaps.
 Maintainer: gilshahar7
